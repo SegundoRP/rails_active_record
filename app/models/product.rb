@@ -11,6 +11,7 @@
 #  updated_at :datetime         not null
 #
 class Product < ApplicationRecord
+  has_many :shopping_cart_products
 
   before_save :validate_product
   after_save :send_notification
@@ -102,5 +103,3 @@ end
 # product.destroy // .destroy_all
 #  product.changed? true o false si fue modificado // product.changes da un hash con los cambios // product.attribute_changed? con esto preguntas si un atrobuto determinado fue modificado // product.attribute_was da el valor anterior // si es persistido el objeto o sea guardado ya se visualizara como que no haya habido cambios
 #  product.saved_change_to_attribute(debes poner aqui el atributio)? esto te dira si fue actualiado ese atributo a pesar de haberse grabado o persistido
-
-end
